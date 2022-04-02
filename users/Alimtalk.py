@@ -42,17 +42,13 @@ def make_signature(string):
 
 def sendAuthCode(data):
 
-    SMS_ACCESS_KEY_ID = os.environ.get("SMS_ACCESS_KEY_ID")
-    SERVICE_ID = os.environ.get("SERVICE_ID")
-
-    phone_number = data["phone_number"]
     auth_number = data["auth_number"]
 
     url = "https://sens.apigw.ntruss.com"
     uri = "/sms/v2/services/ncp:sms:kr:278317119934:shinestudyplace/messages"
     api_url = url + uri
     timestamp = str(int(time.time() * 1000))
-    access_key = "TYl4BI7hgRhRlcaViWWU"
+    access_key = os.environ.get("SMS_ACCESS_KEY_ID")
     string_to_sign = "POST " + uri + "\n" + timestamp + "\n" + access_key
     signature = make_signature(string_to_sign)
     print(signature)
@@ -64,7 +60,7 @@ def sendAuthCode(data):
         "x-ncp-apigw-signature-v2": signature,
     }
     message = f"안녕하세요?샤인스터디플레이스입니다.\n고객님의 인증번호는{auth_number}입니다."  # 메세지 내용을 저장
-    phone = "01067090956"
+    phone = data["phone_number"]
     body = {
         "type": "SMS",
         "contentType": "COMM",
