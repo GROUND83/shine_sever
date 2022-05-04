@@ -47,8 +47,6 @@ ALLOWED_HOSTS = [
     "0.0.0.0",
     "13.209.87.72",
     "3.39.135.233",
-    "*.compute.amazonaws.com",
-    ".ap-northeast-2.compute.amazonaws.com",
     ".shinestudyplace.com",
 ]
 
@@ -106,9 +104,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 # CORS 관련 추가
-# CORS_ORIGIN_WHITELIST = [
-#     " https://shinestudyplace.com",
-# ]
+CORS_ORIGIN_WHITELIST = [
+    " https://shinestudyplace.com",
+]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
