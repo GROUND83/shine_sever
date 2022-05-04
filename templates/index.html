@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>샤In독서실 | 샤인스터디플레이스</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="http://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=yh9580ggyv"></script>
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    function scrollto(div) {
+      $('html,body').animate({
+        scrollTop: $("#" + div).offset().top
+      }, 'slow');
+    }
+  </script>
+</head>
+
+<style>
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+
+  }
+
+  #home {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 20%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%),
+    url('{% static "img/back1.jpg"%}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #about {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 20%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%),
+    url('{% static "img/back3.jpg"%}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+  #address {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 1) 100%),
+    url('{% static "img/back2.jpg"%}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+
+  }
+</style>
+
+<body class="relative flex flex-col items-center w-full bg-black ">
+  <header class="fixed z-50 flex flex-col items-center w-full pt-3 mx-auto lg:bg-emerald-500 bg-opacity-60 bg-emerald-500">
+    <div class="container flex flex-col items-center justify-between w-full cursor-pointer lg:flex-row lg:items-center lg:px-12">
+      <div class="flex flex-row items-center" onclick="scrollto('home');">
+        <img src="{% static "img/logo.svg" %}" alt="logo" style="width: 35px;object-fit: contain;fill: white;" class="" />
+        <div class="flex flex-col items-start ml-3">
+          <span class="text-xs font-thin text-white">샤IN독서실</span>
+          <span class="mt-2 text-xs font-thin text-white">샤인스터디플레이스</span>
+        </div>
+      </div>
+      <nav class="flex flex-row items-center justify-center w-full px-3 py-3 mt-6 bg-white lg:mt-0 lg:w-auto lg:py-0 lg:px-0">
+        <ul class="flex flex-row items-center justify-between flex-1 ">
+          <li onclick="scrollto('about');" class="cursor-pointer text-emerald-500 lg:text-white lg:ml-6 hover:text-emerald-800">운영안내</li>
+          <li onclick="scrollto('info');" class="ml-6 cursor-pointer text-emerald-500 lg:text-white hover:text-emerald-800">좌석 및 시설</li>
+          <li onclick="scrollto('address');" class="ml-6 cursor-pointer text-emerald-500 lg:text-white hover:text-emerald-800">찾아오는길 및 문의</li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+  <section id="home" class="flex flex-col items-center justify-center">
+    <h2 class="sr-only">샤인독서실 메인</h2>
+    <p class="text-3xl font-bold text-white lg:text-5xl">전용 어플리케이션 출시</p>
+    <p class="mt-12 text-white">결제, 입퇴실 인증, 기록까지 편하게 이용해보세요</p>
+    <div class="flex flex-row items-center justify-center mt-12">
+      <img src="{% static "img/appstore.png" %}" style="width: 50px;object-fit: contain;" class="mr-3" />
+      <img src="{% static "img/googleplay.png" %}" style="width: 45px;object-fit: contain;" class="ml-3" />
+    </div>
+    <div class="flex flex-row items-center justify-center px-12 py-3 mt-12 rounded-full bg-emerald-500">
+      <p class="font-bold text-white">샤IN독서실</p>
+      <p class="text-white">을 검색해보세요.</p>
+    </div>
+  </section>
+  <section id="about" style="min-height: 100vh;" class="flex flex-col items-center justify-center w-full bg-gray-200">
+    <div class="container flex flex-col items-center justify-center flex-1 p-12 mx-auto lg:p-24">
+      <h2 class="text-3xl font-bold text-white">운영안내</h2>
+      <p class="mt-6 text-white">운영시간</p>
+      <p class="mt-3 text-white">08:00AM ~ 01:00AM</p>
+      <p class="mt-3 text-white">연중무휴</p>
+      <p class="mt-3 text-white">시스템 정비시 공지 후 휴무 할수 있습니다.</p>
+    </div>
+  </section>
+  <section id="info" class="flex flex-col items-center justify-center w-full ">
+    <div class="container flex flex-col items-center justify-center min-h-screen mt-32 mb-24 lg:mt-24">
+      <h2 class="text-3xl font-bold text-white">좌석안내</h2>
+      <div class="grid w-full grid-cols-1 gap-12 mt-12 lg:grid-cols-3">
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6" style="height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/a.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">A석</p>
+                <div class="flex flex-col items-start mt-12">
+                  <p class="px-6 py-2 text-sm border rounded-full border-emerald-500 text-emerald-500">1인석</p>
+                  <p class="px-6 py-2 mt-3 text-sm border rounded-full border-emerald-500 text-emerald-500">사물함</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-white">
+            <div class="flex flex-row items-center justify-between w-full py-2">
+              <p class="font-bold">가격</p>
+
+              <p>일반(샤인학원생)</p>
+            </div>
+            <div class="flex flex-col items-center justify-between divide-y divide-gray-300">
+
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>1일석</p>
+                <p>10,000원(-1,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>15일석</p>
+                <p>100,000원(-10,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>30일석</p>
+                <p>180,000원(-20,000원)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6" style="height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/b.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">B석</p>
+                <div class="flex flex-col items-start mt-12">
+                  <p class="px-6 py-2 text-sm border rounded-full border-emerald-500 text-emerald-500">고정석</p>
+                  <p class="px-6 py-2 mt-3 text-sm border rounded-full border-emerald-500 text-emerald-500">사물함</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-white">
+            <div class="flex flex-row items-center justify-between w-full py-2">
+              <p class="font-bold">가격</p>
+
+              <p>일반(샤인학원생)</p>
+            </div>
+            <div class="flex flex-col items-center justify-between divide-y divide-gray-300">
+
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>1일석</p>
+                <p>9,000원(-1,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>15일석</p>
+                <p>90,000원(-10,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>30일석</p>
+                <p>160,000원(-20,000원)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6" style="height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/c.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">C석</p>
+                <div class="flex flex-col items-start mt-12">
+                  <p class="px-6 py-2 text-sm border rounded-full border-emerald-500 text-emerald-500">고정석</p>
+                  <p class="px-6 py-2 mt-3 text-sm border rounded-full border-emerald-500 text-emerald-500">외부사물함</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-white">
+            <div class="flex flex-row items-center justify-between w-full py-2">
+              <p class="font-bold">가격</p>
+
+              <p>일반(샤인학원생)</p>
+            </div>
+            <div class="flex flex-col items-center justify-between divide-y divide-gray-300">
+
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>1일석</p>
+                <p>8,000원(-1,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>15일석</p>
+                <p>80,000원(-10,000원)</p>
+              </div>
+              <div class="flex flex-row items-center justify-between w-full py-2 text-sm text-gray-600">
+                <p>30일석</p>
+                <p>130,000원(-20,000원)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="mt-24 text-3xl font-bold text-white">시설</h2>
+      <div class="grid w-full grid-cols-1 gap-3 mt-12 lg:grid-cols-4">
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6 " style=" height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/lounge.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">라운지</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6 " style=" height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/food.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">휴계실</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6 " style=" height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/food.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">사물함</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 ">
+          <div class="flex flex-col items-center object-cover w-full p-6 " style=" height: 280px; background-image: linear-gradient(to right, rgba(0, 0, 0,0.9) 10%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%),url('{% static "img/food.jpg"%}');background-size:100% 100%;">
+            <div class="flex flex-col items-start w-full mt-6">
+              <div class="flex flex-col items-start justify-between w-full">
+                <p class="text-2xl font-bold text-emerald-500">신발장</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="address" class="flex flex-col items-center justify-start">
+    <div class="container flex flex-col items-center justify-start flex-1 mx-auto mt-32 lg:mt-24">
+      <h2 class="text-3xl font-bold text-white">찾아오는길</h2>
+      <div id="map" style="width:70vw;height:500px;border-radius: 10px;margin-top: 20px;" class=""></div>
+      <script>
+        var mapOptions = {
+          center: new naver.maps.LatLng(33.4908499, 126.5457654),
+          zoom: 17
+        };
+        var map = new naver.maps.Map('map', mapOptions);
+        var marker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(33.4908499, 126.5457654),
+          map: map
+        });
+      </script>
+      <p class="mt-6 text-white">제주시 연북로 638 2층</p>
+
+      <h2 class="mt-12 text-3xl font-bold text-white">문의</h2>
+
+      <p style="color:white;margin-top: 20px;">064.723.3015</p>
+    </div>
+  </section>
+  <section id="contact">
+
+
+
+
+  </section>
+  <footer class="container flex flex-col items-center w-full px-12 mt-24">
+    <div class="flex flex-col items-start justify-end w-full text-white divide-y divide-gray-500 lg:items-center">
+      <div class="flex flex-col items-start py-2 text-xs text-gray-500 lg:items-center lg:flex-row">
+        <p>샤IN독서실</p>
+        <p class="lg:ml-3">사업자번호</p>
+        <p class="lg:ml-3">제주특별자치도 제주시 연북로 638 2층</p>
+        <p class="lg:ml-3">통신판매업신고번호</p>
+        <p class="lg:ml-3">064.723.3015</p>
+      </div>
+      <div class="flex flex-col items-start py-2 text-xs text-gray-500 lg:items-center lg:flex-row">
+        <p>샤인스터디플레이스</p>
+        <p class="lg:ml-3">사업자번호</p>
+        <p class="lg:ml-3">제주특별자치도 제주시 연북로 638 2층</p>
+        <p class="lg:ml-3">통신판매업신고번호</p>
+        <p class="lg:ml-3">064.723.3015</p>
+      </div>
+    </div>
+    <p style="padding: 20px 0px;font-weight: 300;" class="text-xs text-gray-500">
+      copyright <script>
+        today = new Date()
+        yyy = today.getFullYear()
+        document.write(yyy)
+      </script>&copy;샤IN독서실 All rights reserved.
+    </p>
+
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "shine_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GROUND83/shine_sever.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GROUND83/shine_sever/issues"
+  },
+  "homepage": "https://github.com/GROUND83/shine_sever#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^7.0.1",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "sass": "^1.50.1"
+  }
+}

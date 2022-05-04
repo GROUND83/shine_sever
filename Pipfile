@@ -13,6 +13,9 @@ requests = "*"
 django-cors-headers = "*"
 django-dotenv = "*"
 pyjwt = "*"
+boto3 = "*"
+django-storages = "*"
+sonoff-python = "*"
 
 [dev-packages]
 

@@ -18,9 +18,23 @@ from django.urls import path, include, re_path
 
 from django.conf import settings
 from django.conf.urls.static import static
+from cores import views as indexView
+
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 
 urlpatterns = [
+    path("", indexView.index),
+    path("sentry-debug/", trigger_error),
     path("admin/", admin.site.urls),
     path("api/v1/users/", include("users.urls")),
+    path("api/v1/seats/", include("seats.urls")),
+    path("api/v1/notices/", include("notices.urls")),
+    path("api/v1/alrams/", include("alrams.urls")),
+    path("api/v1/checks/", include("checks.urls")),
+    path("api/v1/complaints/", include("complaints.urls")),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

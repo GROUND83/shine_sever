@@ -2,6 +2,7 @@ from dataclasses import fields
 from django.contrib import admin
 from . import models
 from django.utils.html import format_html
+from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
 
 @admin.register(models.UserType)
@@ -19,10 +20,9 @@ class ItemAdmin(admin.ModelAdmin):
 
 # Register your models here.
 @admin.register(models.User)
-class CustomUserAdmin(admin.ModelAdmin):
-    def __str__(self):
-        return self.phone
-
+class CustomUserAdmin(
+    admin.ModelAdmin,
+):
     def image_tag(self, obj):
         if obj.user_image:
             return format_html(
@@ -36,6 +36,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     image_tag.short_description = "Image"
 
     list_display = (
+        "id",
         "username",
         "phone",
         "user_type",
@@ -43,34 +44,22 @@ class CustomUserAdmin(admin.ModelAdmin):
         "timeAlram",
         "eventAlram",
     )
-    readonly_fields = (
-        "image_tag",
-        "username",
-        # "phone",
-        "user_type",
-        "user_birth",
-        "personalPolicy",
-        "parent_name",
-        "parent_phone",
-        "school_name",
-        "school_grade",
-        "timeAlram",
-        "eventAlram",
-        "is_shine",
-    )
+    readonly_fields = ("image_tag",)
     fields = (
         "image_tag",
         "username",
         "phone",
+        "gender",
+        "password",
         "user_type",
         "user_birth",
-        "is_shine",
         "school_name",
         "school_grade",
-        "parent_name",
-        "parent_phone",
         "timeAlram",
         "eventAlram",
         "personalPolicy",
+        "user_image",
+        "deviceId",
+        "onsignalId",
     )
     search_fields = ["username", "phone"]

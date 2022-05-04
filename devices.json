@@ -1,0 +1,32 @@
+[
+    {
+        "name": "\uba54\uc778",
+        "id": "eb68c6h4i00qi7gv",
+        "key": "9df78ed5b632660e",
+        "mac": "DC:23:4D:BB:79:D0"
+    },
+    {
+        "name": "\ub77c\uc6b4\uc9c0",
+        "id": "eb0b74el4i1bl3cz",
+        "key": "9df78ed5b632660e",
+        "mac": "DC:23:4D:BB:75:19"
+    },
+    {
+        "name": "\ucd9c\uc785\ubb38",
+        "id": "eb14b8e4ca936805f7ax6k",
+        "key": "9df78ed5b632660e",
+        "mac": "d4:a6:51:ed:da:b6"
+    },
+    {
+        "name": "\uce74\uc6b4\ud130\ub9ac\ubaa8\ucf58",
+        "id": "ebf2958b4985c5d4057rlw",
+        "key": "abe91619e1296d96",
+        "mac": "38:1f:8d:67:93:ed"
+    },
+    {
+        "name": "\uce74\uc6b4\ud130\uc5d0\uc5b4\ucf58",
+        "id": "eba9d5b98ea94bb67cgjdc",
+        "key": "abe91619e1296d96",
+        "mac": "N/A"
+    }
+]

@@ -3,8 +3,17 @@ from . import models
 
 # Register your models here.
 @admin.register(models.Vertifie)
-class SaladAdmin(admin.ModelAdmin):
+class VertifieAdmin(admin.ModelAdmin):
     list_display = (
         "phone",
         "code",
+        "updated"
     )
+    fields = (
+        "phone",
+        "code",
+        "updated",
+        "limitTime",
+    )
+    readonly_fields = ("updated",)
+
