@@ -105,7 +105,7 @@ MIDDLEWARE = [
 ]
 # CORS 관련 추가
 CORS_ORIGIN_WHITELIST = [
-    " https://shinestudyplace.com",
+    "https://shinestudyplace.com",
 ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
