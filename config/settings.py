@@ -194,13 +194,13 @@ MEDIA_ROOT = BASE_DIR / "uploads"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-AWS_S3_SECURE_URLS = False
-AWS_QUERYSTRING_AUTH = False
+# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+# AWS_S3_SECURE_URLS = False
+# AWS_QUERYSTRING_AUTH = False
 
-AWS_S3_ACCESS_KEY_ID = get_secret("STORAGE_KEY")
-AWS_S3_SECRET_ACCESS_KEY = get_secret("STORAGE_SECRET")
-AWS_STORAGE_BUCKET_NAME = "shinestorage"
+# AWS_S3_ACCESS_KEY_ID = get_secret("STORAGE_KEY")
+# AWS_S3_SECRET_ACCESS_KEY = get_secret("STORAGE_SECRET")
+# AWS_STORAGE_BUCKET_NAME = "shinestorage"
 
 sentry_sdk.init(
     dsn="https://e5771c3d5bfd429db97ca19d794d02bb@o407713.ingest.sentry.io/6307964",
