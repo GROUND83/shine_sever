@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "*",
@@ -182,7 +182,7 @@ USE_TZ = False
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = []
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = "/home/shine/www/shine_server/static"
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
